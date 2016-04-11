@@ -1,0 +1,1 @@
+insert into app_user (username,password,role_name,enabled) values ('admin','$2a$10$wypHzs2nCwCT1hQj5eIrU.tWQLWAS8.DRMIZEEQCNbEi0x62NyKbO','USER',1);
