@@ -3,6 +3,7 @@ package com.example.rest;
 import com.example.domain.AppUser;
 import com.example.service.impl.AppUserService;
 import flexjson.JSONDeserializer;
+import lombok.extern.slf4j.Slf4j;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,11 +16,10 @@ import java.util.List;
  */
 @RestController
 @RequestMapping("/appuser")
+@Slf4j
 public class AppUserRest {
     @Autowired
     AppUserService appUserService;
-
-    private static final Logger log = LoggerFactory.getLogger(AppUserRest.class);
 
     @RequestMapping(value = "/findOne", method = RequestMethod.GET)
     public AppUser findOne(@RequestParam(value = "id")Long id) {

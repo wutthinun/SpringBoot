@@ -1,5 +1,6 @@
 package com.example.domain;
 
+import lombok.Data;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
@@ -11,6 +12,7 @@ import java.util.Set;
  */
 @Table(name="MaterialType")
 @Entity
+@Data
 public class MaterialType {
 
     @Id
@@ -40,73 +42,4 @@ public class MaterialType {
     @OrderBy("createDate")
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, mappedBy = "materialType")
     private Set<Matter> matters;
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public Date getCreateDate() {
-        return createDate;
-    }
-
-    public void setCreateDate(Date createDate) {
-        this.createDate = createDate;
-    }
-
-    public Date getUpdateDate() {
-        return updateDate;
-    }
-
-    public void setUpdateDate(Date updateDate) {
-        this.updateDate = updateDate;
-    }
-
-    public AppUser getCreateBy() {
-        return createBy;
-    }
-
-    public void setCreateBy(AppUser createBy) {
-        this.createBy = createBy;
-    }
-
-    public AppUser getUpdateBy() {
-        return updateBy;
-    }
-
-    public void setUpdateBy(AppUser updateBy) {
-        this.updateBy = updateBy;
-    }
-
-    public String getTypeName() {
-        return typeName;
-    }
-
-    public void setTypeName(String typeName) {
-        this.typeName = typeName;
-    }
-
-    public Set<Matter> getMatters() {
-        return matters;
-    }
-
-    public void setMatters(Set<Matter> matters) {
-        this.matters = matters;
-    }
-
-    @Override
-    public String toString() {
-        return "MaterialType{" +
-                "id=" + id +
-                ", createDate=" + createDate +
-                ", updateDate=" + updateDate +
-                ", createBy=" + createBy +
-                ", updateBy=" + updateBy +
-                ", typeName='" + typeName + '\'' +
-                ", matters=" + matters +
-                '}';
-    }
 }

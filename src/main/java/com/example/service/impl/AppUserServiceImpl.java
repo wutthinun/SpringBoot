@@ -2,6 +2,7 @@ package com.example.service.impl;
 
 import com.example.domain.AppUser;
 import com.example.repository.AppUserRepository;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -11,6 +12,7 @@ import java.util.List;
  * Created by wutthinan on 4/4/2016 AD.
  */
 @Service
+@Slf4j
 public class AppUserServiceImpl implements AppUserService {
 
     @Autowired

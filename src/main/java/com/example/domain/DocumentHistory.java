@@ -1,5 +1,6 @@
 package com.example.domain;
 
+import lombok.Data;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
@@ -11,6 +12,7 @@ import java.util.Date;
  */
 @Table(name="DocumentHistory")
 @Entity
+@Data
 public class DocumentHistory implements Serializable {
 
     @Id
@@ -38,73 +40,4 @@ public class DocumentHistory implements Serializable {
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "matter")
     private Matter matter;
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public Date getCreateDate() {
-        return createDate;
-    }
-
-    public void setCreateDate(Date createDate) {
-        this.createDate = createDate;
-    }
-
-    public AppUser getCreateBy() {
-        return createBy;
-    }
-
-    public void setCreateBy(AppUser createBy) {
-        this.createBy = createBy;
-    }
-
-    public String getActionType() {
-        return actionType;
-    }
-
-    public void setActionType(String actionType) {
-        this.actionType = actionType;
-    }
-
-    public String getRemark() {
-        return remark;
-    }
-
-    public void setRemark(String remark) {
-        this.remark = remark;
-    }
-
-    public String getStatus() {
-        return status;
-    }
-
-    public void setStatus(String status) {
-        this.status = status;
-    }
-
-    public Matter getMatter() {
-        return matter;
-    }
-
-    public void setMatter(Matter matter) {
-        this.matter = matter;
-    }
-
-    @Override
-    public String toString() {
-        return "DocumentHistory{" +
-                "id=" + id +
-                ", createDate=" + createDate +
-                ", createBy=" + createBy +
-                ", actionType='" + actionType + '\'' +
-                ", remark='" + remark + '\'' +
-                ", status='" + status + '\'' +
-                ", matter=" + matter +
-                '}';
-    }
 }

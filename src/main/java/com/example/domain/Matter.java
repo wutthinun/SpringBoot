@@ -1,5 +1,6 @@
 package com.example.domain;
 
+import lombok.Data;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
@@ -12,6 +13,7 @@ import java.util.Set;
  */
 @Table(name="Matter")
 @Entity
+@Data
 public class Matter implements Serializable {
 
     @Id
@@ -72,154 +74,4 @@ public class Matter implements Serializable {
     @OrderBy("createDate")
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, mappedBy = "matter")
     private Set<DocumentHistory> documentHistorys;
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public Date getCreateDate() {
-        return createDate;
-    }
-
-    public void setCreateDate(Date createDate) {
-        this.createDate = createDate;
-    }
-
-    public Date getUpdateDate() {
-        return updateDate;
-    }
-
-    public void setUpdateDate(Date updateDate) {
-        this.updateDate = updateDate;
-    }
-
-    public AppUser getCreateBy() {
-        return createBy;
-    }
-
-    public void setCreateBy(AppUser createBy) {
-        this.createBy = createBy;
-    }
-
-    public AppUser getUpdateBy() {
-        return updateBy;
-    }
-
-    public void setUpdateBy(AppUser updateBy) {
-        this.updateBy = updateBy;
-    }
-
-    public Date getEndDate() {
-        return endDate;
-    }
-
-    public void setEndDate(Date endDate) {
-        this.endDate = endDate;
-    }
-
-    public String getMaterialName() {
-        return materialName;
-    }
-
-    public void setMaterialName(String materialName) {
-        this.materialName = materialName;
-    }
-
-    public String getRohs() {
-        return rohs;
-    }
-
-    public void setRohs(String rohs) {
-        this.rohs = rohs;
-    }
-
-    public String getMsds() {
-        return msds;
-    }
-
-    public void setMsds(String msds) {
-        this.msds = msds;
-    }
-
-    public String getSpec() {
-        return spec;
-    }
-
-    public void setSpec(String spec) {
-        this.spec = spec;
-    }
-
-    public String getHalogen() {
-        return halogen;
-    }
-
-    public void setHalogen(String halogen) {
-        this.halogen = halogen;
-    }
-
-    public String getStatus() {
-        return status;
-    }
-
-    public void setStatus(String status) {
-        this.status = status;
-    }
-
-    public String getFolw() {
-        return folw;
-    }
-
-    public void setFolw(String folw) {
-        this.folw = folw;
-    }
-
-    public MaterialType getMaterialType() {
-        return materialType;
-    }
-
-    public void setMaterialType(MaterialType materialType) {
-        this.materialType = materialType;
-    }
-
-    public Set<MaterialCode> getMaterialCodes() {
-        return materialCodes;
-    }
-
-    public void setMaterialCodes(Set<MaterialCode> materialCodes) {
-        this.materialCodes = materialCodes;
-    }
-
-    public Set<DocumentHistory> getDocumentHistorys() {
-        return documentHistorys;
-    }
-
-    public void setDocumentHistorys(Set<DocumentHistory> documentHistorys) {
-        this.documentHistorys = documentHistorys;
-    }
-
-    @Override
-    public String toString() {
-        return "Matter{" +
-                "id=" + id +
-                ", createDate=" + createDate +
-                ", updateDate=" + updateDate +
-                ", createBy=" + createBy +
-                ", updateBy=" + updateBy +
-                ", endDate=" + endDate +
-                ", materialName='" + materialName + '\'' +
-                ", rohs='" + rohs + '\'' +
-                ", msds='" + msds + '\'' +
-                ", spec='" + spec + '\'' +
-                ", halogen='" + halogen + '\'' +
-                ", status='" + status + '\'' +
-                ", folw='" + folw + '\'' +
-                ", materialType=" + materialType +
-                ", materialCodes=" + materialCodes +
-                ", documentHistorys=" + documentHistorys +
-                '}';
-    }
 }

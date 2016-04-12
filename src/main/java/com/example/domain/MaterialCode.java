@@ -1,5 +1,6 @@
 package com.example.domain;
 
+import lombok.Data;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
@@ -10,6 +11,7 @@ import java.util.Date;
  */
 @Table(name="MaterialCode")
 @Entity
+@Data
 public class MaterialCode {
 
     @Id
@@ -33,55 +35,4 @@ public class MaterialCode {
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "matter")
     private Matter matter;
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public Date getCreateDate() {
-        return createDate;
-    }
-
-    public void setCreateDate(Date createDate) {
-        this.createDate = createDate;
-    }
-
-    public Date getUpdateDate() {
-        return updateDate;
-    }
-
-    public void setUpdateDate(Date updateDate) {
-        this.updateDate = updateDate;
-    }
-
-    public String getCodeName() {
-        return codeName;
-    }
-
-    public void setCodeName(String codeName) {
-        this.codeName = codeName;
-    }
-
-    public Matter getMatter() {
-        return matter;
-    }
-
-    public void setMatter(Matter matter) {
-        this.matter = matter;
-    }
-
-    @Override
-    public String toString() {
-        return "MaterialCode{" +
-                "id=" + id +
-                ", createDate=" + createDate +
-                ", updateDate=" + updateDate +
-                ", codeName='" + codeName + '\'' +
-                ", matter=" + matter +
-                '}';
-    }
 }
